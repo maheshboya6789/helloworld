@@ -1,15 +1,30 @@
 name: Test Self-Hosted Runner
+
 on:
   push:
-    branches: [main]  # or your working branch
+    branches: [main]
+
 jobs:
   test:
     runs-on: self-hosted
+
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Print hostname
         run: hostname
+
       - name: Print current directory
         run: pwd
 
       - name: Print time
         run: date
+
+      - name: Change to subdirectory
+        run: cd path/to/docker/project && pwd
+
+      - name: Build Docker image
+        run: |
+          cd path/to/docker/project
+          docker build -t my-image-name .
