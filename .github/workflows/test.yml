@@ -1,16 +1,13 @@
 name: Test Self-Hosted Runner
-
 on:
   push:
     branches: [main]  # or your working branch
-
 jobs:
   test:
     runs-on: self-hosted
     steps:
       - name: Print hostname
         run: hostname
-
       - name: Print current directory
         run: pwd
 
